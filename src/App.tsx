@@ -1,7 +1,11 @@
-import React from "react";
+import { Header } from "./components/Header/Header";
 
-function App() {
-  return <div> chacra ui table test task header</div>;
-}
+const App = () => {
+  return (
+    <div>
+      <Header /> chacra ui table test task header
+    </div>
+  );
+};
 
 export default App;
