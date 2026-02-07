@@ -55,7 +55,6 @@ export const Modal = ({ open, setOpen }: IModal) => {
             </Box>
 
             <Flex gap={6} flexWrap="wrap">
-              {/* Левая колонка */}
               <Box flex="1 1 250px">
                 <Box mb={4}>
                   <StyledText fontSize={12}>Аптека</StyledText>
@@ -96,7 +95,6 @@ export const Modal = ({ open, setOpen }: IModal) => {
                 </Box>
               </Box>
 
-              {/* Правая колонка */}
               <Box flex="1 1 250px">
                 <Box mb={4}>
                   <StyledText fontSize={12}>Тема заявки</StyledText>
