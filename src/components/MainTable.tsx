@@ -41,7 +41,7 @@ export const MainTable = ({ data, headers }: IMainTable) => {
                 <DateTimeMask data={row.createdAt} />
               </Table.Cell>
               <Table.Cell>
-                <Flex align="center" gap="px" wrap="nowrap">
+                <Flex align="center" gap="6px" wrap="nowrap">
                   <Image
                     src={priorityIcons[`${row.priority}`]}
                     alt={row.priority}

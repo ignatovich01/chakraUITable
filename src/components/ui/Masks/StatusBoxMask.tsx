@@ -27,7 +27,6 @@ export const StatusTextMask: React.FC<IStatusTextMask> = ({
       alignItems="center"
       justifyContent="center"
       gap="7px"
-      // bg={"black"}
       bg={statusColors[status]}
     >
       <StyledText {...props}>{Status[status]}</StyledText>

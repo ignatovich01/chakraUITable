@@ -27,8 +27,9 @@ const STATUSES: { label: string; value: Status }[] = [
 export const ToolBar: FC = () => {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState<Status>("all");
-  const [onlyMine, setOnlyMine] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+
+  console.log(status, "status");
 
   return (
     <Box
@@ -79,13 +80,11 @@ export const ToolBar: FC = () => {
           </Tabs.List>
         </Tabs.Root>
 
-        <Checkbox.Root
-          checked={onlyMine}
-          onCheckedChange={(e) => setOnlyMine(Boolean(e.checked))}
-        >
+        <Checkbox.Root>
+          <Checkbox.HiddenInput />
           <Checkbox.Control />
           <Checkbox.Label>
-            <StyledText>Показать только мои</StyledText> ............
+            <StyledText>Показать только мои</StyledText>
           </Checkbox.Label>
         </Checkbox.Root>
       </HStack>

@@ -4,7 +4,6 @@ import {
   CloseButton,
   Dialog,
   Flex,
-  Input,
   Portal,
   Textarea,
   chakra,
@@ -41,7 +40,7 @@ export const Modal = ({ open, setOpen }: IModal) => {
             borderRadius="md"
             boxShadow="lg"
             width="100%"
-            maxW="700px"
+            maxW="900px"
             p={6}
             position="relative"
           >
@@ -101,7 +100,10 @@ export const Modal = ({ open, setOpen }: IModal) => {
               <Box flex="1 1 250px">
                 <Box mb={4}>
                   <StyledText fontSize={12}>Тема заявки</StyledText>
-                  <Input placeholder="Краткое название заявки" />
+                  <Textarea
+                    resize="none"
+                    placeholder="Дайте заявке краткое название: например, сломался холодильник или не работает кондиционер"
+                  />
                 </Box>
 
                 <Box mb={4}>
@@ -123,26 +125,34 @@ export const Modal = ({ open, setOpen }: IModal) => {
                 <Box mb={4}>
                   <StyledText fontSize={12}>Описание проблемы</StyledText>
                   <Textarea
-                    placeholder="Например: в холодильнике не работает компрессор, нужно заменить термостат и т.д."
-                    minH="100px"
+                    placeholder="Кратко опишите проблему: 
+
+что случилось? 
+дата и время произошедшего? 
+сколько длится проблема?
+насколько она влияет на вашу работу?"
+                    resize="none"
+                    minH="140px"
                   />
                 </Box>
 
-                <FileUpload.Root alignItems="stretch" maxFiles={5}>
-                  <FileUpload.HiddenInput />
-                  <FileUpload.Dropzone>
-                    <FileUpload.DropzoneContent>
-                      <Box>Выберите или перетащите фото или файл</Box>
-                      <Image
-                        src={Upload}
-                        alt="Upload"
-                        boxSize="15px"
-                        objectFit="contain"
-                      />
-                    </FileUpload.DropzoneContent>
-                  </FileUpload.Dropzone>
-                  <FileUpload.List />
-                </FileUpload.Root>
+                <Flex>
+                  <FileUpload.Root alignItems="stretch" maxFiles={5} maxW="s">
+                    <FileUpload.HiddenInput />
+                    <FileUpload.Dropzone>
+                      <FileUpload.DropzoneContent>
+                        <Box>Выберите или перетащите фото или файл</Box>
+                        <Image
+                          src={Upload}
+                          alt="Upload"
+                          boxSize="15px"
+                          objectFit="contain"
+                        />
+                      </FileUpload.DropzoneContent>
+                    </FileUpload.Dropzone>
+                    <FileUpload.List clearable />
+                  </FileUpload.Root>
+                </Flex>
               </Box>
             </Flex>
 

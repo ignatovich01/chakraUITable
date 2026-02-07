@@ -22,7 +22,7 @@ export const ResolutionMask: React.FC<IResolutionMask> = ({
     );
   }
   return (
-    <Flex align="center" gap="4px" wrap="nowrap">
+    <Flex justify="center" align="center" gap="4px" wrap="nowrap">
       {resolutionTime?.theme === "green" ? (
         <Image src={Union} alt="Union" boxSize="14px" objectFit="contain" />
       ) : resolutionTime?.theme === "red" ? (
@@ -31,20 +31,26 @@ export const ResolutionMask: React.FC<IResolutionMask> = ({
         <Image src={Acute} alt="Acute" boxSize="14px" objectFit="contain" />
       )}
 
-      {resolutionTime?.value ?? (
-        <Image src={Minus} alt="Minus" boxSize="24px" objectFit="contain" />
+      {!resolutionTime?.value ? (
+        <Flex>
+          <Image src={Minus} alt="Minus" boxSize="24px" objectFit="contain" />
+        </Flex>
+      ) : (
+        <StyledText
+          display="flex"
+          justifyContent="center"
+          fontSize={14}
+          color={
+            resolutionTime?.theme === "green"
+              ? "#0E7411"
+              : resolutionTime?.theme === "red"
+                ? "#B93C3C"
+                : "#1C1C1C"
+          }
+        >
+          {resolutionTime.value}
+        </StyledText>
       )}
-      <StyledText
-        display="flex"
-        justifyContent="center"
-        color={
-          resolutionTime?.theme === "green"
-            ? "#0E7411"
-            : resolutionTime?.theme === "red"
-              ? "#B93C3C"
-              : "#1C1C1C"
-        }
-      ></StyledText>
     </Flex>
   );
 };
