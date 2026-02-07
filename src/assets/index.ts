@@ -5,6 +5,7 @@ import Minus from "./Minus.png";
 import Acute from "./Acute.png";
 import Union from "./Union.png";
 import Error from "./Error.png";
+import Upload from "./Upload.png";
 import { priorityIcons } from "./Priority";
 
 export {
@@ -15,5 +16,6 @@ export {
   Acute,
   Union,
   Error,
+  Upload,
   priorityIcons,
 };

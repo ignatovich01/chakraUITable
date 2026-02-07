@@ -1,10 +1,11 @@
 import { Box, Flex, Image, Table } from "@chakra-ui/react";
+import { Priority, Ticket } from "@/data/Interface";
+import { Acute, Minus, priorityIcons, Union } from "@/assets";
 import { StyledText } from "./ui/StyledText";
 import { DateTimeMask } from "./ui/Masks/DateTimeMask";
-import { Acute, Minus, priorityIcons, Union } from "@/assets";
 import { StatusTextMask } from "./ui/Masks/StatusBoxMask";
 import { ResolutionMask } from "./ui/Masks/ResolutionMask";
-import { Priority, Ticket } from "@/data/Interface";
+
 interface IMainTable {
   data: Ticket[];
   headers: string[];

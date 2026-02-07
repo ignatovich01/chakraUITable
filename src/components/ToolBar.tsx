@@ -1,6 +1,7 @@
 import { Box, Button, Checkbox, HStack, Input, Tabs } from "@chakra-ui/react";
 import { FC, useState } from "react";
 import { StyledText } from "./ui/StyledText";
+import { Modal } from "./Modal";
 
 export type Status =
   | "new"
@@ -27,6 +28,7 @@ export const ToolBar: FC = () => {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState<Status>("all");
   const [onlyMine, setOnlyMine] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <Box
@@ -47,7 +49,11 @@ export const ToolBar: FC = () => {
 
         <Button variant="outline">Экспорт</Button>
 
-        <Button colorPalette="gray">+ Создать новую заявку</Button>
+        <Button onClick={() => setOpenModal(true)} colorScheme="gray">
+          + Создать новую заявку
+        </Button>
+
+        {openModal && <Modal open={openModal} setOpen={setOpenModal} />}
       </HStack>
 
       <HStack justify="space-between" align="center">
@@ -79,7 +85,7 @@ export const ToolBar: FC = () => {
         >
           <Checkbox.Control />
           <Checkbox.Label>
-            <StyledText>Показать только мои</StyledText>
+            <StyledText>Показать только мои</StyledText> ............
           </Checkbox.Label>
         </Checkbox.Root>
       </HStack>
