@@ -1,6 +1,15 @@
-import { HStack, Text, MenuRoot, MenuTrigger, Image } from "@chakra-ui/react";
+import {
+  HStack,
+  MenuRoot,
+  MenuTrigger,
+  Image,
+  MenuContent,
+  MenuItem,
+  MenuPositioner,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { Polygon } from "../../assets";
+import { StyledText } from "../ui/StyledText";
 
 export const TopMenu = () => {
   const [active, setActive] = useState<"Заявки" | "Отчеты" | "Справочники">(
@@ -8,27 +17,24 @@ export const TopMenu = () => {
   );
 
   const color = (v: string) => (active === v ? "black" : "gray.500");
-  const weight = (v: string) => (active === v ? "600" : "400");
 
   return (
     <HStack gap="20px">
-      <Text
+      <StyledText
         cursor="pointer"
         color={color("Заявки")}
-        fontWeight={weight("Заявки")}
         onClick={() => setActive("Заявки")}
       >
         Заявки
-      </Text>
+      </StyledText>
 
-      <Text
+      <StyledText
         cursor="pointer"
         color={color("Отчеты")}
-        fontWeight={weight("Отчеты")}
         onClick={() => setActive("Отчеты")}
       >
         Отчеты
-      </Text>
+      </StyledText>
 
       <MenuRoot>
         <MenuTrigger asChild>
@@ -36,20 +42,33 @@ export const TopMenu = () => {
             cursor="pointer"
             gap="2"
             color={color("Справочники")}
-            fontWeight={weight("Справочники")}
             onClick={() => setActive("Справочники")}
           >
             <HStack spaceX="4px">
-              <Text fontWeight="600">Справочники</Text>
+              <StyledText>Справочники</StyledText>
               <Image
                 src={Polygon}
-                alt="стрелка"
+                alt="Polygon"
                 boxSize="7px"
                 objectFit="contain"
               />
             </HStack>
           </HStack>
         </MenuTrigger>
+        <MenuPositioner>
+          <MenuContent>
+            <MenuItem value="orgs"></MenuItem>
+            <MenuItem value="users">
+              <StyledText fontSize={16}>Пользователи</StyledText>
+            </MenuItem>
+            <MenuItem value="roles">
+              <StyledText fontSize={16}>Роли</StyledText>
+            </MenuItem>
+            <MenuItem value="settings">
+              <StyledText fontSize={16}>Настройки</StyledText>
+            </MenuItem>
+          </MenuContent>
+        </MenuPositioner>
       </MenuRoot>
     </HStack>
   );
